@@ -32,7 +32,7 @@ class Page {
     this.btnD63 = Selector('#elements > button:nth-child(2)');
     this.btnD64 = Selector('#elements > button:nth-child(3)');
 
-
+    
     
     
 
@@ -53,6 +53,22 @@ class Page {
     //datepicker
     this.text705 = Selector('Thanks for submitting your form');
     this.text706 = Selector('body > div > div');
+
+    //Practica 8
+    this.link8 = Selector('a').withText('Form Authentication');
+    this.input81 = Selector('#username');
+    this.input82 = Selector('#password');
+    this.btn83 = Selector('#login > button > i');
+    this.msg84 = Selector('#flash').withText('Your username is invalid!');
+    this.msg85 = Selector('#flash').withText('You logged into a secure area!');
+    this.header86 = Selector('#content > div > h2');
+    this.header87 = Selector('#content > div > h4');
+    this.btn88 = Selector('#content > div > a'); 
+    this.msg89 = Selector('#flash').withText('You logged out of the secure area!');
+    this.msg90 = Selector ('#flash').withText('Your username is invalid!');
+    this.msg901 = Selector('#flash').withText('Your password is invalid!');
+
+    
 
     //Practica 10
     this.link10 = Selector('')
