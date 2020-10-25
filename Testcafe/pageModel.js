@@ -33,6 +33,7 @@ class Page {
 
     this.checkbox41 = Selector('#checkboxes > input[type=checkbox]:nth-child(1)');
     this.checkbox42 = Selector('#checkboxes > input[type=checkbox]:nth-child(3)');
+    
 
     //Practica 7 - Formulario
     this.input71 = Selector('#first-name');
