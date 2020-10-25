@@ -15,6 +15,8 @@ test('Probar checkboxes no seleccionados', async t =>{
     //await t.expect(page.baseCheckbox.nth(3).checked).notOk()
     await t.expect(page.checkbox42.checked).notOk()
 
+});
+
 
 test('Probar checkboxes que esten seleccionados', async t =>{
     await t
