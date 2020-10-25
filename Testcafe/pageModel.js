@@ -18,10 +18,8 @@ class Page {
     //Checkbox padre
     this.baseCheckbox = Selector('#checkboxes > input[type=checkbox]')
     //Checkbox hijos
-    //this.checkbox41 = Selector('#checkboxes > input[type=checkbox]:nth-child(1)');
-    this.checkbox42 = Selector('#checkboxes > input[type=checkbox]:nth-child(3)');
 
-    //Practica 5
+      //Practica 5
     this.link5 = Selector('a').withText('Inputs');
     this.input51 = Selector('#content > div > div > div > input[type=number]');
     
@@ -32,6 +30,9 @@ class Page {
     this.btnD63 = Selector('#elements > button:nth-child(2)');
     this.btnD64 = Selector('#elements > button:nth-child(3)');
 
+
+    this.checkbox41 = Selector('#checkboxes > input[type=checkbox]:nth-child(1)');
+    this.checkbox42 = Selector('#checkboxes > input[type=checkbox]:nth-child(3)');
 
     //Practica 7 - Formulario
     this.input71 = Selector('#first-name');
