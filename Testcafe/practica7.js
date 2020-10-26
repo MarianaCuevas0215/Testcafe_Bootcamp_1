@@ -1,5 +1,5 @@
 import page from './pageModel';
-fixture('Test con testcafe')
+fixture('Practica 7 con testcafe')
     .page ('https://formy-project.herokuapp.com/form');
 
 test('Validar un formulario', async t =>{
@@ -14,6 +14,8 @@ test('Validar un formulario', async t =>{
         .expect(page.rbt74.checked).ok()
         .click(page.rbt75)
         .expect(page.rbt75.checked).ok()
+        .click(page.rbt76)
+        .expect(page.rbt76.checked).ok()
         .click(page.checkbox77)
         .expect(page.checkbox77.checked).ok()
         .click(page.checkbox78)
@@ -24,5 +26,9 @@ test('Validar un formulario', async t =>{
         .click(page.opt702)
         .typeText(page.date703, "01112020")
         .click(page.btn704)
-        
-})
+
+    await t
+        .expect(page.text705.visible).ok()
+        .expect(page.text706.visible).ok()
+                
+});
