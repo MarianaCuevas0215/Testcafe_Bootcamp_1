@@ -31,7 +31,7 @@ class Page {
     this.btnD62 = Selector('#elements > button');
     this.btnD63 = Selector('#elements > button:nth-child(2)');
     this.btnD64 = Selector('#elements > button:nth-child(3)');
-
+    
     
     
     
@@ -49,10 +49,9 @@ class Page {
     this.smenu701 = Selector('#select-menu');
     this.opt702 = Selector('#select-menu > option:nth-child(2)');
     this.date703 = Selector('#datepicker');
-    this.datebtn704 = Selector('body > div > form > div > div:nth-child(15) > a')
-    //datepicker
-    this.text705 = Selector('Thanks for submitting your form');
-    this.text706 = Selector('body > div > div');
+    this.btn704 = Selector('body > div > form > div > div:nth-child(15) > a');
+    this.text705 = Selector('h1').withText('Thanks for submitting your form'); 
+    this.text706 = Selector('body > div > div'); 
 
     //Practica 8
     this.link8 = Selector('a').withText('Form Authentication');
@@ -68,12 +67,13 @@ class Page {
     this.msg90 = Selector ('#flash').withText('Your username is invalid!');
     this.msg901 = Selector('#flash').withText('Your password is invalid!');
 
-    
+    //Practica 9
+    this.link9 = Selector('a').withText('Key Presses');
+    this.text91 = Selector('#result');
 
     //Practica 10
-    this.link10 = Selector('')
-
-
+    this.link10 = Selector('a').withText('Context Menu');
+    this.hotspot101 = Selector('#hot-spot');
 
     }
 }

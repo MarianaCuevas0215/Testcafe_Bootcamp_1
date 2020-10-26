@@ -1,9 +1,13 @@
 import page from './pageModel';
-fixture('Test con testcafe')
-    .page ('https://formy-project.herokuapp.com/form');
+fixture('Practica 10 con testcafe')
+    .page ('https://the-internet.herokuapp.com/');
 
-test('Verificar que se pueda capturar o teclear algo en un campo', async t =>{
+test('Probar una ventana emergente (pop-up)', async t =>{
     await t
+        .click(page.link10)
+    await t
+        .setNativeDialogHandler()
+        .rightClick(page.hotspot101)
+                
         
-        
-})
+});
