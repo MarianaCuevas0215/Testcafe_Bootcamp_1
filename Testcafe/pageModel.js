@@ -75,6 +75,19 @@ class Page {
     this.link10 = Selector('a').withText('Context Menu');
     this.hotspot101 = Selector('#hot-spot');
 
+    //Practica 11
+    this.link11 = Selector('a').withText('Horizontal Slider');
+    this.slider111 = Selector('#content > div > div > input[type=range]');
+
+    //Practica 12
+    this.slider12 = Selector('#slider');
+        this.slider = {
+            handle: Selector('.ui-slider-handle'),
+            value: Selector('.slider-value')
+        };
+    this.checkboxTried = Selector('#tried-test-cafe');
+
+
     }
 }
 
