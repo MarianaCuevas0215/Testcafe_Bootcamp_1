@@ -87,7 +87,7 @@ class Page {
         };
     this.checkboxTried = Selector('#tried-test-cafe');
 
-
+    
     }
 }
 
