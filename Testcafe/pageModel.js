@@ -78,7 +78,7 @@ class Page {
     //Practica 11
     this.link11 = Selector('a').withText('Horizontal Slider');
     this.slider111 = Selector('#content > div > div > input[type=range]');
-
+        
     //Practica 12
     this.slider12 = Selector('#slider');
         this.slider = {
