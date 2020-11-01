@@ -1,14 +1,8 @@
 import page from './pageModel';
+import { data } from './data';
+import {ClientFunction} from 'testcafe';
 
-let rndNumber = Math.random().toString(36).substr(1,4);
-const email = 'dummy' + rndNumber + '@mailinator.com'
-const firstName = 'Mariana'
-const lastName = 'Cuevas'
-const password = '12345678'
-const address = 'Ignacio Allende 328'
-const city = 'CDMX'
-const postcode = '11260'
-const phone = '1111111111'
+const getLocation = ClientFunction(() => document.location.href);
 
 fixture ('Pruebas del modulo Mi cuenta')
     .page('http://automationpractice.com');
@@ -17,22 +11,22 @@ test('Validar que un usuario pueda crear una nueva cuenta', async t =>{
     await t 
         .click(page.signin_link)
 
-    console.log("Correo: ", email)
+    console.log("Correo: ", data.email)
 
     await t
-        .typeText(page.emailAddress_input, email, {speed:0.01})
+        .typeText(page.emailAddress_input, data.email, {speed:0.01})
         .click(page.createAccount_btn)
 
     await t
         .click(page.title_rbtn)
-        .typeText(page.firstName_input, firstName, {speed:0.01})
-        .expect(page.firstName_input.value).eql(firstName)
-        .typeText(page.lastName_input, lastName, {speed:0.01})
-        .expect(page.lastName_input.value).eql(lastName)
-        .expect(page.email_input.value).contains(email)
+        .typeText(page.firstName_input, data.firstName, {speed:0.01})
+        .expect(page.firstName_input.value).eql(data.firstName)
+        .typeText(page.lastName_input, data.lastName, {speed:0.01})
+        .expect(page.lastName_input.value).eql(data.lastName)
+        .expect(page.email_input.value).contains(data.email)
         .expect(page.email_input.hasAttribute('readonly')).notOk()
-        .typeText(page.passwd_input, password, {speed:0.01})
-        .expect(page.passwd_input.value).eql(password)
+        .typeText(page.passwd_input, data.password, {speed:0.01})
+        .expect(page.passwd_input.value).eql(data.password)
         .click(page.dayBirth_dropdown)
         .click(page.dayBirth_value)
         .click(page.monthBirth_dropdown)
@@ -41,31 +35,42 @@ test('Validar que un usuario pueda crear una nueva cuenta', async t =>{
         .click(page.yearBirth_value)
     
     await t
-        .expect(page.firstNameAddress_input.value).eql(firstName)
-        .expect(page.lastNameAddress_input.value).eql(lastName) 
-        .typeText(page.address_input, address, {speed:0.01})
-        .expect(page.address_input.value).contains(address)
-        .typeText(page.city_input, city, {speed:0.01})
-        .expect(page.city_input.value).contains(city)
+        .expect(page.firstNameAddress_input.value).eql(data.firstName)
+        .expect(page.lastNameAddress_input.value).eql(data.lastName) 
+        .typeText(page.address_input, data.address, {speed:0.01})
+        .expect(page.address_input.value).contains(data.address)
+        .typeText(page.city_input, data.city, {speed:0.01})
+        .expect(page.city_input.value).contains(data.city)
         .click(page.state_dropdown)
         .click(page.state_value)
-        .typeText(page.zip_input, postcode, {speed:0.01})
-        .expect(page.zip_input.value).contains(postcode)
+        .typeText(page.zip_input, data.postcode, {speed:0.01})
+        .expect(page.zip_input.value).contains(data.postcode)
         .click(page.country_dropdown)
         .click(page.country_value)
-        .typeText(page.phone_input, phone, {speed:0.01})
-        .expect(page.phone_input.value).eql(phone)
+        .typeText(page.phone_input, data.phone, {speed:0.01})
+        .expect(page.phone_input.value).eql(data.phone)
         .expect(page.addressAlias_input.value).contains("My address")
         .typeText(page.addressAlias_input, "Mi casa", {replace: true})
         .expect(page.addressAlias_input.value).eql("Mi casa")
         .click(page.register_btn)       
-        .expect(page.textInfoAccount_msg.value).contains('MY ACCOUNT')      
+        .expect(page.textInfoAccount_msg.innerText).contains('MY ACCOUNT')      
         
 } );
 
 test('Validar que el usuario pueda hacer login con la nueva cuenta creada', async t =>{
     await t 
+        .click(page.signin_link)
 
+    await t
+        .typeText(page.email_account_input, data.emailValido, {speed: 0.01})
+        .expect(page.email_account_input.value).eql(data.emailValido)
+        .typeText(page.passwd_account_input, data.password, {speed: 0.01})
+        .expect(page.passwd_account_input.value).eql(data.password)
+        .click(page.signin_btn)
+
+    await t
+        .expect(getLocation()).contains('http://automationpractice.com/index.php?controller=my-account')
+        .wait(1000)
 
 } );
 
