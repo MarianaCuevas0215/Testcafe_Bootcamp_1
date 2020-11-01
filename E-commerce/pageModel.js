@@ -31,6 +31,11 @@ class Page {
         this.addressAlias_input = Selector('#alias');
         this.register_btn = Selector('#submitAccount');
         this.textInfoAccount_msg = Selector('#center_column > h1'); 
+
+        //Validar que el usuario pueda hacer login con la nueva cuenta creada
+        this.email_account_input = Selector('#email');
+        this.passwd_account_input = Selector('#passwd');
+        this.signin_btn = Selector('#SubmitLogin');
     }
 }
 
