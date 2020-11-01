@@ -69,14 +69,25 @@ test('Validar que el usuario pueda hacer login con la nueva cuenta creada', asyn
         .click(page.signin_btn)
 
     await t
-        .expect(getLocation()).contains('http://automationpractice.com/index.php?controller=my-account')
+        .expect(getLocation()).contains(data.url_myAccount)
         .wait(1000)
 
 } );
 
 test('Validar que el usuario pueda hacer logout a su sesión', async t =>{
     await t 
+        .click(page.signin_link)
 
+    await t
+        .typeText(page.email_account_input, data.emailValido, {speed: 0.01})
+        .expect(page.email_account_input.value).eql(data.emailValido)
+        .typeText(page.passwd_account_input, data.password, {speed: 0.01})
+        .expect(page.passwd_account_input.value).eql(data.password)
+        .click(page.signin_btn)
+    await t
+        .click(page.logout_link)
+    await t
+        .expect(getLocation()).contains(data.url_authentication) 
 
 } );
 

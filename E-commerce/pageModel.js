@@ -36,6 +36,11 @@ class Page {
         this.email_account_input = Selector('#email');
         this.passwd_account_input = Selector('#passwd');
         this.signin_btn = Selector('#SubmitLogin');
+
+        //Validar que el usuario pueda hacer logout a su sesión
+        this.logout_link = Selector('a').withText('Sign out');        
+
+
     }
 }
 
