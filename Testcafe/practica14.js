@@ -1,36 +1,27 @@
-import page from './pageModel';
-fixture('Practica 7 con testcafe')
-    .page ('https://the-internet.herokuapp.com/');
+import { Selector} from 'testcafe';
+import {ClientFunction} from 'testcafe';
 
-const getLocation = ClientFunction(() => )
+const getLocation = ClientFunction(() => document.location.href);
 
-test('Validar adjuntar un archivo', async t =>{
+fixture('Practica 14 con testcafe')
+    .page ('https://the-internet.herokuapp.com/upload');
+
+test('Probar adjuntar un archivo', async t =>{
     await t
-        .typeText(page.input71, "Mariana", {speed:0.1})
-        .expect(page.input71.value).eql("Mariana")
-        .typeText(page.input72, "Cuevas", {speed:0.1})
-        .expect(page.input72.value).eql("Cuevas")
-        .typeText(page.input73, "Software engineer in test")
-        .expect(page.input73.value).eql("Software engineer in test")
-        .click(page.rbt74)
-        .expect(page.rbt74.checked).ok()
-        .click(page.rbt75)
-        .expect(page.rbt75.checked).ok()
-        .click(page.rbt76)
-        .expect(page.rbt76.checked).ok()
-        .click(page.checkbox77)
-        .expect(page.checkbox77.checked).ok()
-        .click(page.checkbox78)
-        .expect(page.checkbox78.checked).ok()
-        .click(page.checkbox79)
-        .expect(page.checkbox79.checked).ok()
-        .click(page.smenu701)
-        .click(page.opt702)
-        .typeText(page.date703, "01112020")
-        .click(page.btn704)
+        .expect(Selector('#file-upload').visible).ok()
+        .setFilesToUpload(Selector('#file-upload'),'./Gatito.jpg')
+        .click('#file-submit')
 
     await t
-        .expect(page.text705.visible).ok()
-        .expect(page.text706.visible).ok()
+        .wait(1000)
+        .expect(Selector('h3').innerText).contains('Uploaded')
+        .expect(Selector('#uploaded-files').innerText).contains('Gatito.jpg')
+
+});
+
+
+test('Validar que la URL sea correcta', async t =>{
+    await t
+        .expect(getLocation()).contains('https://the-internet.herokuapp.com/upload')
                 
 });
