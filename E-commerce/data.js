@@ -10,7 +10,9 @@ let data = {
     city: 'CDMX',
     postcode: '11260',
     phone:'1111111111',
-    emailValido: 'dummy.c8c@mailinator.com'
+    emailValido: 'dummy.c8c@mailinator.com',
+    url_myAccount: 'http://automationpractice.com/index.php?controller=my-account',
+    url_authentication: 'http://automationpractice.com/index.php?controller=authentication&back=my-account'
 
 }
 
